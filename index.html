@@ -54,7 +54,7 @@
                       box-shadow: 0 0 0 4px rgba(16,185,129,.15); }
 
     /* KPI */
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 16px; margin-bottom: 24px; }
     .kpi { background: var(--surface); border-radius: var(--radius); padding: 20px;
            box-shadow: var(--shadow); position: relative; overflow: hidden; }
@@ -66,6 +66,13 @@
                  color: var(--ink-900); font-variant-numeric: tabular-nums; }
     .kpi-sub { font-size: 12px; color: var(--ink-500); margin-top: 6px; }
     .kpi-accent.alert .kpi-value { color: var(--warn); }
+    .kpi-editable { cursor: pointer; border-bottom: 1px dashed var(--brand);
+                    padding-bottom: 2px; transition: color 0.15s ease; }
+    .kpi-editable:hover { color: var(--brand); }
+    .kpi-input { font-size: 22px; font-weight: 700; letter-spacing: -0.02em;
+                 width: 110px; padding: 4px 8px; border: 2px solid var(--brand);
+                 border-radius: 6px; background: white; color: var(--ink-900);
+                 font-family: inherit; }
 
     /* Card */
     .card { background: var(--surface); border-radius: var(--radius); padding: 20px;
@@ -165,6 +172,8 @@
                                                font-size: 11px; color: var(--ink-500); }
     table.data tr.row-undated td { background: #fafaf9; }
     table.data tr.row-undated td:first-child { background: #fef9c3; }
+    table.data tr.row-only-share td { background: #f0f9ff; }
+    table.data tr.row-only-share td:first-child { background: #e0f2fe; }
     table.data .cell-date-undated { display: flex; flex-direction: column;
                                     align-items: flex-start; gap: 2px; min-width: 130px; }
     table.data .expected-date { font-size: 11px; color: #92400e; font-weight: 600;
@@ -273,22 +282,22 @@
   {
     "view_revenue_usd": 79.59,
     "ads": [
-      { "id": 1,  "title": "가인지 캠퍼스 컨퍼런스",                "company": "가인지캠퍼스",   "rewards_cash": 50000,  "rewards_note": "50,000원",                       "reward_type": "현금",          "ad_date": "2023-10-27", "content_type": "인스타그램 피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 2,  "title": "그로스쿨 데퍼콘 패키지",                "company": "그로스쿨",       "rewards_cash": 100000, "rewards_note": "100,000원",                      "reward_type": "현금",          "ad_date": "2023-10-18", "content_type": "인스타그램 피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 3,  "title": "핸친소 캠페인 챌린지",                  "company": "YALE",          "rewards_cash": 0,      "rewards_note": "메일 의류",                       "reward_type": "제품제공",      "ad_date": "2024-01-17", "content_type": "인스타그램 피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 4,  "title": "AI 비즈니스 프로필",                   "company": "SNOW",          "rewards_cash": 100000, "rewards_note": "100,000원",                      "reward_type": "현금",          "ad_date": "2024-02-01", "content_type": "인스타그램 릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 5,  "title": "마케팅러너X 1기",                      "company": "그로스쿨",       "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2024-02-20", "content_type": "인스타그램 릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 6,  "title": "제로베이스",                            "company": "제로베이스",     "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2024-12-24", "content_type": "인스타그램 릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 7,  "title": "링글",                                  "company": "링글",          "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2025-01-15", "content_type": "인스타그램 릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 8,  "title": "미리캔버스",                            "company": "미리캔버스",     "rewards_cash": 300000, "rewards_note": "300,000원",                      "reward_type": "현금",          "ad_date": "2026-01-16", "content_type": "인스타그램 릴스",                              "followers_at_time": 4000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 9,  "title": "잡트래커",                              "company": "잡트래커",       "rewards_cash": 300000, "rewards_note": "300,000원",                      "reward_type": "현금",          "ad_date": "2026-03-27", "content_type": "인스타그램 릴스 + 스토리 공유 2건",             "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 10, "title": "멀티캠퍼스",                            "company": "멀티캠퍼스",     "rewards_cash": 350000, "rewards_note": "350,000원",                      "reward_type": "현금",          "ad_date": "2026-04-07", "content_type": "인스타그램 릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 11, "title": "플라우드 노트",                        "company": "플라우드",       "rewards_cash": 0,      "rewards_note": "제품 제공",                       "reward_type": "제품제공",      "ad_date": "2026-05-13", "content_type": "인스타그램 릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 12, "title": "AI 시대 사수없는 마케터의 질문 수업",   "company": "리코멘드 출판사", "rewards_cash": 0,      "rewards_note": "팔로워 이벤트",                   "reward_type": "이벤트",        "ad_date": "2026-08-21", "content_type": "인스타그램 피드",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 13, "title": "명료함",                                "company": "탁희재",         "rewards_cash": 0,      "rewards_note": "팔로워 이벤트",                   "reward_type": "이벤트",        "ad_date": "2026-08-31", "content_type": "인스타그램 피드",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 14, "title": "스니핏",                                "company": "위시스트",       "rewards_cash": 300000, "rewards_note": "300,000원 + 수익쉐어 + PA",      "reward_type": "현금+수익쉐어", "ad_date": "2026-08-27", "content_type": "인스타그램 릴스",                              "followers_at_time": 7000, "memo": "", "uploaded": true,  "settled": "완료"   },
-      { "id": 15, "title": "스픽",                                  "company": "스픽",           "rewards_cash": 400000, "rewards_note": "400,000원 (2건) + 수익쉐어",     "reward_type": "현금+수익쉐어", "ad_date": null,                 "scheduled_date": "2026-09-20", "content_type": "인스타그램 릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": false, "settled": "미정산" },
-      { "id": 16, "title": "코드잇",                                "company": "코드잇",         "rewards_cash": 350000, "rewards_note": "350,000원 + PA",                  "reward_type": "현금+PA",       "ad_date": null,         "content_type": "인스타그램 릴스",                              "followers_at_time": 7000, "memo": "", "uploaded": false, "settled": "미정산" }
+      { "id": 1,  "title": "가인지 캠퍼스 컨퍼런스",                "company": "가인지캠퍼스",   "rewards_cash": 50000,  "rewards_note": "50,000원",                       "reward_type": "현금",          "ad_date": "2023-10-27", "content_type": "피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 2,  "title": "그로스쿨 데퍼콘 패키지",                "company": "그로스쿨",       "rewards_cash": 100000, "rewards_note": "100,000원",                      "reward_type": "현금",          "ad_date": "2023-10-18", "content_type": "피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 3,  "title": "핸친소 캠페인 챌린지",                  "company": "YALE",          "rewards_cash": 0,      "rewards_note": "메일 의류",                       "reward_type": "제품제공",      "ad_date": "2024-01-17", "content_type": "피드",                              "followers_at_time": 2000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 4,  "title": "AI 비즈니스 프로필",                   "company": "SNOW",          "rewards_cash": 100000, "rewards_note": "100,000원",                      "reward_type": "현금",          "ad_date": "2024-02-01", "content_type": "릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 5,  "title": "마케팅러너X 1기",                      "company": "그로스쿨",       "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2024-02-20", "content_type": "릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 6,  "title": "제로베이스",                            "company": "제로베이스",     "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2024-12-24", "content_type": "릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 7,  "title": "링글",                                  "company": "링글",          "rewards_cash": 200000, "rewards_note": "200,000원",                      "reward_type": "현금",          "ad_date": "2025-01-15", "content_type": "릴스",                              "followers_at_time": 3000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 8,  "title": "미리캔버스",                            "company": "미리캔버스",     "rewards_cash": 300000, "rewards_note": "300,000원",                      "reward_type": "현금",          "ad_date": "2026-01-16", "content_type": "릴스",                              "followers_at_time": 4000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 9,  "title": "잡트래커",                              "company": "잡트래커",       "rewards_cash": 300000, "rewards_note": "300,000원",                      "reward_type": "현금",          "ad_date": "2026-03-27", "content_type": "릴스",             "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 10, "title": "멀티캠퍼스",                            "company": "멀티캠퍼스",     "rewards_cash": 350000, "rewards_note": "350,000원",                      "reward_type": "현금",          "ad_date": "2026-04-07", "content_type": "릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 11, "title": "플라우드 노트",                        "company": "플라우드",       "rewards_cash": 0,      "rewards_note": "제품 제공",                       "reward_type": "제품제공",      "ad_date": "2026-05-13", "content_type": "릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 12, "title": "AI 시대 사수없는 마케터의 질문 수업",   "company": "리코멘드 출판사", "rewards_cash": 0,      "rewards_note": "팔로워 이벤트",                   "reward_type": "이벤트",        "ad_date": "2026-08-21", "content_type": "피드",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 13, "title": "명료함",                                "company": "탁희재",         "rewards_cash": 0,      "rewards_note": "팔로워 이벤트",                   "reward_type": "이벤트",        "ad_date": "2026-08-31", "content_type": "피드",                              "followers_at_time": 6000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 14, "title": "스니핏",                                "company": "위시스트",       "rewards_cash": 300000, "rewards_note": "300,000원 + 수익쉐어 + PA",      "reward_type": "현금+수익쉐어", "ad_date": "2026-08-27", "content_type": "릴스",                              "followers_at_time": 7000, "memo": "", "uploaded": true,  "settled": "완료"   },
+      { "id": 15, "title": "스픽",                                  "company": "스픽",           "rewards_cash": 400000, "rewards_note": "400,000원 (2건) + 수익쉐어",     "reward_type": "현금+수익쉐어", "ad_date": null,                 "scheduled_date": "2026-09-20", "content_type": "릴스",                              "followers_at_time": 6000, "memo": "", "uploaded": false, "settled": "미정산" },
+      { "id": 16, "title": "코드잇",                                "company": "코드잇",         "rewards_cash": 350000, "rewards_note": "350,000원 + PA",                  "reward_type": "현금+PA",       "ad_date": null,         "content_type": "릴스",                              "followers_at_time": 7000, "memo": "", "uploaded": false, "settled": "미정산" }
     ]
   }
   </script>
@@ -339,6 +348,8 @@
             <option value="현금">현금만</option>
             <option value="현금+수익쉐어">현금 + 수익쉐어</option>
             <option value="현금+PA">현금 + PA</option>
+            <option value="현금+수익쉐어+PA">현금 + 수익쉐어 + PA</option>
+            <option value="수익쉐어">수익쉐어만</option>
             <option value="제품제공">제품 제공</option>
             <option value="이벤트">이벤트 (팔로워 등)</option>
           </select>
@@ -356,9 +367,9 @@
         <div class="field">
           <label>콘텐츠 유형</label>
           <select name="content_type">
-            <option value="인스타그램 릴스">릴스</option>
-            <option value="인스타그램 피드">피드</option>
-            <option value="인스타그램 릴스 + 스토리 공유 2건">릴스 + 스토리 공유 2건</option>
+            <option value="릴스">릴스</option>
+            <option value="피드">피드</option>
+            <option value="릴스+피드">릴스 + 피드</option>
           </select>
         </div>
       </div>
@@ -428,11 +439,35 @@
   // 안전 정규화: 레거시 "현금+쉐어" 값을 최신 명칭으로 통일
   function normalizeAds(raw) {
     raw.view_revenue_usd = Number(raw.view_revenue_usd) || 0;
+  raw.share_revenue_krw = Number(raw.share_revenue_krw) || 0; // 수익쉐어 정산 누적 금액 (사용자 편집)
     (raw.ads || []).forEach(function (r) {
       r.rewards_cash = Number(r.rewards_cash) || 0;
       r.followers_at_time = r.followers_at_time == null || r.followers_at_time === ''
         ? null : Number(r.followers_at_time);
       r.reward_type = (r.reward_type === '현금+쉐어') ? '현금+수익쉐어' : (r.reward_type || '');
+      // 옛 단어 → 현재 표기로 자동 마이그레이션 (localStorage 잔존 데이터 호환)
+      if (r.title) {
+        r.title = r.title
+          .replace(/잠트래커/g, '잡트래커')
+          .replace(/맨친소 캠페인 챌린지/g, '핸친소 캠페인 챌린지')
+          .replace(/맨친소/g, '핸친소')
+          .replace(/그로스쿨 테머콘 패키지/g, '그로스쿨 데퍼콘 패키지')
+          .replace(/테머콘/g, '데퍼콘');
+      }
+      if (r.company) {
+        r.company = r.company
+          .replace(/잠트래커/g, '잡트래커')
+          .replace(/맨친소/g, '핸친소')
+          .replace(/테머콘/g, '데퍼콘');
+      }
+      // 콘텐츠 유형 마이그레이션 (옛 값 → 새 3개 값)
+      if (r.content_type) {
+        var ct = String(r.content_type);
+        if (ct.indexOf('릴스') >= 0 && ct.indexOf('피드') >= 0) r.content_type = '릴스+피드';
+        else if (ct.indexOf('릴스') >= 0) r.content_type = '릴스';
+        else if (ct.indexOf('피드') >= 0) r.content_type = '피드';
+        else r.content_type = ct.replace(/^인스타그램\s*/, '').replace(/\s*\+\s*스토리.*$/, '').trim();
+      }
       r.uploaded = !!r.uploaded;
       r.memo = r.memo || ''; // 메모 필드 (없으면 빈 문자열)
       r.scheduled_date = r.scheduled_date || null; // 예정일 (YYYY-MM-DD 또는 null)
@@ -455,11 +490,16 @@
 
     var totalCash = 0, cashCount = 0, nonCashCount = 0;
     var settledCount = 0, unsettledCount = 0;
+    var shareDealCount = 0; // 수익쉐어를 받는 협업 건수 (현금+수익쉐어 / 수익쉐어만 / 현금+수익쉐어+PA)
     ads.forEach(function (r) {
       if (r.rewards_cash > 0) { totalCash += r.rewards_cash; cashCount++; }
       else                     { nonCashCount++; }
       if (r.settled === '완료') settledCount++;
       else                       unsettledCount++;
+      // 수익쉐어 카운트 자동 집계 (보상금액은 별도 입력)
+      if (r.reward_type === '현금+수익쉐어' || r.reward_type === '현금+수익쉐어+PA' || r.reward_type === '수익쉐어') {
+        shareDealCount++;
+      }
     });
     var latestAd = ads.reduce(function (best, r) {
       if (!r.followers_at_time) return best;
@@ -504,6 +544,8 @@
         unsettled_count: unsettledCount,
         latest_followers: latestAd ? latestAd.followers_at_time : 0,
         view_revenue_usd: raw.view_revenue_usd,
+        share_revenue_krw: raw.share_revenue_krw,
+        share_deal_count: shareDealCount,
       },
       revenue_by_month: revenue_by_month,
       followers_growth: followers_growth,
@@ -521,6 +563,15 @@
   // ----- 유틸 -----
   function won(v) { return new Intl.NumberFormat('ko-KR').format(v); }
   function dateShort(s) { return s ? s.slice(0, 10) : '—'; }
+  function nextDayIso(isoDate) {
+    if (!isoDate) return '';
+    var d = new Date(isoDate + 'T00:00:00');
+    d.setDate(d.getDate() + 1);
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, '0');
+    var day = String(d.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -549,9 +600,26 @@
       '<div class="kpi kpi-accent"><div class="kpi-label">누적 광고비 수익</div>' +
         '<div class="kpi-value">₩' + won(k.total_cash_revenue) + '</div>' +
         '<div class="kpi-sub">현금 광고 ' + k.cash_deal_count + '건</div></div>' +
+      '<div class="kpi kpi-accent"><div class="kpi-label">수익 쉐어 금액</div>' +
+        '<div class="kpi-value">' +
+          '<span class="kpi-editable" id="kpi-share-revenue" data-field="share_revenue_krw" title="클릭 → 실시간 수정">₩' +
+            won(k.share_revenue_krw) +
+          '</span>' +
+          '<input type="number" id="kpi-share-revenue-input" class="kpi-input" min="0" ' +
+            'step="1000" value="' + k.share_revenue_krw + '" ' +
+            'style="display:none" placeholder="₩">' +
+        '</div>' +
+        '<div class="kpi-sub">수익쉐어 광고 ' + k.share_deal_count + '건 · 실시간 편집 가능</div></div>' +
       '<div class="kpi kpi-accent"><div class="kpi-label">조회수 수익</div>' +
-        '<div class="kpi-value">$' + k.view_revenue_usd.toFixed(2) + '</div>' +
-        '<div class="kpi-sub">YouTube · Reels 등</div></div>' +
+        '<div class="kpi-value">' +
+          '<span class="kpi-editable" id="kpi-view-revenue" data-field="view_revenue_usd" title="클릭 → 실시간 수정">$' +
+            k.view_revenue_usd.toFixed(2) +
+          '</span>' +
+          '<input type="number" id="kpi-view-revenue-input" class="kpi-input" min="0" ' +
+            'step="0.01" value="' + k.view_revenue_usd.toFixed(2) + '" ' +
+            'style="display:none" placeholder="$">' +
+        '</div>' +
+        '<div class="kpi-sub">실시간 편집 가능</div></div>' +
       '<div class="kpi kpi-accent"><div class="kpi-label">총 협업 건수</div>' +
         '<div class="kpi-value">' + won(k.total_deals) + '건</div>' +
         '<div class="kpi-sub">비현금 보상 ' + k.non_cash_deal_count + '건</div></div>' +
@@ -559,10 +627,7 @@
         '<div class="kpi-value">' + k.settled_count + ' / ' + k.total_deals + '</div>' +
         '<div class="kpi-sub">' +
           (k.unsettled_count > 0 ? '미정산 ' + k.unsettled_count + '건' : '모두 정산 완료') +
-        '</div></div>' +
-      '<div class="kpi kpi-accent"><div class="kpi-label">현재 팔로워</div>' +
-        '<div class="kpi-value">' + won(k.latest_followers) + '⬆</div>' +
-        '<div class="kpi-sub">최신 협업 기준</div></div>';
+        '</div></div>';
   }
 
   // ----- 정산 도넛 -----
@@ -624,16 +689,16 @@
   // ----- 광고 리스트 (연도별 그룹) -----
   function contentTag(c) {
     if (!c) return '';
-    return c.indexOf('릴스') >= 0
-      ? '<span class="tag tag-brand">릴스</span>'
-      : c.indexOf('피드') >= 0
-        ? '<span class="tag tag-neutral">피드</span>'
-        : '<span class="tag tag-neutral">' + esc(c) + '</span>';
+    if (c === '릴스+피드' || (c.indexOf('릴스') >= 0 && c.indexOf('피드') >= 0))
+      return '<span class="tag tag-brand">릴스 + 피드</span>';
+    if (c.indexOf('릴스') >= 0) return '<span class="tag tag-brand">릴스</span>';
+    if (c.indexOf('피드') >= 0) return '<span class="tag tag-neutral">피드</span>';
+    return '<span class="tag tag-neutral">' + esc(c) + '</span>';
   }
   function statusTag(s) {
     if (s === '완료')  return '<span class="tag tag-success">정산 완료</span>';
     if (s === '미정산') return '<span class="tag tag-warn">미정산</span>';
-    return '<span class="tag tag-neutral">미정</span>';
+    return '<span class="tag tag-neutral">진행중</span>';
   }
   function rewardCell(r) {
     if (r.rewards_cash > 0) {
@@ -651,50 +716,94 @@
   }
 
   function renderTable() {
-    // 연도별로 그룹핑
+    // 그룹핑:
+    //   - 'ONLY_SHARE':  reward_type === '수익쉐어' (only) — 별도 섹션
+    //   - '진행중':      ad_date 미정이면서 수익쉐어-only 가 아닌 광고
+    //   - 그 외:         연도별
     var yearMap = {};
     var yearTtlCash = {};
+    var onlyShareRows = [];
     DATA.ads.forEach(function (r) {
+      if (r.reward_type === '수익쉐어') {
+        onlyShareRows.push(r);
+        return;
+      }
       var y = r.ad_date ? r.ad_date.slice(0, 4) : '진행중';
       if (!yearMap[y]) { yearMap[y] = []; yearTtlCash[y] = 0; }
       yearMap[y].push(r);
       if (r.rewards_cash > 0) yearTtlCash[y] += r.rewards_cash;
     });
 
-    // 연도 순서: '진행중' (최상단), 그 다음 숫자연도 DESC
+    // 섹션 순서: '진행중' → 'ONLY_SHARE' → 숫자연도 DESC
     var years = Object.keys(yearMap).sort(function (a, b) {
       if (a === '진행중') return -1;
       if (b === '진행중') return 1;
       return b.localeCompare(a);
     });
+    // 최종 섹션 키 순서 조립
+    var sectionKeys = [];
+    years.forEach(function (k) { sectionKeys.push(k); });
+    if (onlyShareRows.length > 0) {
+      var jIdx = sectionKeys.indexOf('진행중');
+      var insertAt = jIdx >= 0 ? jIdx + 1 : sectionKeys.length;
+      sectionKeys.splice(insertAt, 0, 'ONLY_SHARE');
+    }
 
     var totalCashAll = DATA.kpis.total_cash_revenue;
 
-    function rowHtml(r) {
+    function rowHtml(r, isOnlyShare) {
       var undated = !r.ad_date;
       // 진행중 행: 예정일과 인라인 날짜 editor 함께 표시
       var sch = undated && r.scheduled_date ? r.scheduled_date : null;
       var schDisplay = '';
-      if (sch) {
+      if (sch && !isOnlyShare) {
         var sd = sch.slice(8, 10);
         var monthNames = ['', '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
         var sm = monthNames[parseInt(sch.slice(5, 7), 10)] || '';
-        schDisplay = '<div class="expected-date" title="예정일 (' + esc(sch) + ')">📅 ' + sm + ' ' + sd + '일 예정</div>';
+        var nextDay = nextDayIso(sch);
+        var gcalTitle = r.title + ' 광고 (예정일)';
+        var gcalDetails = (r.company ? ('회사: ' + r.company + '\\n') : '') +
+                          (r.rewards_note ? ('보상: ' + r.rewards_note + '\\n') : '') +
+                          (r.memo ? ('메모: ' + r.memo) : '');
+        var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+                      '&text=' + encodeURIComponent(gcalTitle) +
+                      '&dates=' + sch.replace(/-/g, '') + '/' + nextDay.replace(/-/g, '') +
+                      '&details=' + encodeURIComponent(gcalDetails) +
+                      '&sf=true&output=xml';
+        schDisplay = '<a class="expected-date" href="' + escAttr(gcalUrl) + '" target="_blank" rel="noopener noreferrer" ' +
+                     'title="클릭 → Google Calendar 일정 추가 (' + esc(sch) + ')">📅 ' + sm + ' ' + sd + '일 예정</a>';
       }
-      var dateCell = undated
-        ? '<div class="cell-date-undated">' +
-            schDisplay +
-            '<input type="date" class="row-edit-input row-date-input" data-id="' + r.id + '" data-field="ad_date" title="날짜 입력 → 자동으로 해당 연도로 이동 + 업로드 ✅">' +
-          '</div>'
-        : '<span class="readonly-text">' + dateShort(r.ad_date) + '</span>';
-      var settleCell = undated
-        ? '<select class="row-edit-input" data-id="' + r.id + '" data-field="settled">' +
-            '<option value="미정"' + (r.settled === '미정' ? ' selected' : '') + '>미정</option>' +
-            '<option value="미정산"' + (r.settled === '미정산' ? ' selected' : '') + '>미정산</option>' +
-            '<option value="완료"' + (r.settled === '완료' ? ' selected' : '') + '>완료</option>' +
-          '</select>'
-        : statusTag(r.settled);
-      return '<tr data-id="' + r.id + '" class="' + (undated ? 'row-undated' : '') + '">' +
+      var dateCell;
+      if (isOnlyShare) {
+        // only-수익쉐어 섹션: 정적 날짜 표시 (인라인 변경 없음)
+        dateCell = '<span class="readonly-text">' + (undated ? '진행중' : dateShort(r.ad_date)) + '</span>';
+      } else {
+        dateCell = undated
+          ? '<div class="cell-date-undated">' +
+              schDisplay +
+              '<input type="date" class="row-edit-input row-date-input" data-id="' + r.id + '" data-field="ad_date" title="날짜 입력 → 자동으로 해당 연도로 이동 + 업로드 ✅">' +
+            '</div>'
+          : '<span class="readonly-text">' + dateShort(r.ad_date) + '</span>';
+      }
+      var settleCell;
+      if (isOnlyShare) {
+        // only-수익쉐어 섹션: 3 옵션 dropdown (정산 완료 / 미정산 / 진행중)
+        settleCell = '<select class="row-edit-input" data-id="' + r.id + '" data-field="settled" title="정산 상태 편집">' +
+          '<option value="미정"' + (!r.settled || r.settled === '미정' ? ' selected' : '') + '>진행중</option>' +
+          '<option value="미정산"' + (r.settled === '미정산' ? ' selected' : '') + '>미정산</option>' +
+          '<option value="완료"' + (r.settled === '완료' ? ' selected' : '') + '>정산 완료</option>' +
+        '</select>';
+      } else if (undated) {
+        // 진행중 섹션: 2 옵션 dropdown (정산 완료 / 미정산)
+        settleCell = '<select class="row-edit-input" data-id="' + r.id + '" data-field="settled" title="정산 상태 편집">' +
+          '<option value="미정산"' + (r.settled === '미정산' || !r.settled ? ' selected' : '') + '>미정산</option>' +
+          '<option value="완료"' + (r.settled === '완료' ? ' selected' : '') + '>정산 완료</option>' +
+        '</select>';
+      } else {
+        // 일반 행: 정적 tag 표시
+        settleCell = statusTag(r.settled);
+      }
+      return '<tr data-id="' + r.id + '" class="' + (undated && !isOnlyShare ? 'row-undated' : (isOnlyShare ? 'row-only-share' : '')) + '">' +
         '<td class="cell-date">' + dateCell + '</td>' +
         '<td><strong>' + esc(r.title) + '</strong></td>' +
         '<td>' + contentTag(r.content_type) + '</td>' +
@@ -714,11 +823,14 @@
       '</tr>';
     }
 
-    var bodyHtml = years.map(function (y) {
-      var rows = yearMap[y];
-      var titleText = (y === '진행중') ? '진행중' : y + '년';
+    var bodyHtml = sectionKeys.map(function (y) {
+      var rows = (y === 'ONLY_SHARE') ? onlyShareRows : yearMap[y];
+      var titleText = (y === '진행중') ? '진행중'
+                    : (y === 'ONLY_SHARE') ? 'only 수익쉐어'
+                    : y + '년';
       var metaParts = [rows.length + '건'];
-      if (yearTtlCash[y] > 0) metaParts.push('₩' + won(yearTtlCash[y]));
+      var ttlCash = (y === 'ONLY_SHARE') ? 0 : (yearTtlCash[y] || 0);
+      if (ttlCash > 0) metaParts.push('₩' + won(ttlCash));
 
       // 현금 / 비현금 서브그룹 분리
       var cashRows = rows.filter(function (r) { return (r.rewards_cash || 0) > 0; });
@@ -734,14 +846,19 @@
       }
 
       var tbody = '';
-      if (showSubgroups) {
+      var isOnlyShareSection = (y === 'ONLY_SHARE');
+      if (isOnlyShareSection) {
+        // only 수익쉐어 섹션: 단일 리스트 (모두 cash=0/수익쉐어 기반)
+        tbody += subgroupDivider('수익쉐어 only 협업', rows.length, 0);
+        tbody += rows.map(function (r) { return rowHtml(r, true); }).join('');
+      } else if (showSubgroups) {
         var cashSubTotal = cashRows.reduce(function (s, r) { return s + (r.rewards_cash || 0); }, 0);
         tbody += subgroupDivider('현금 광고', cashRows.length, cashSubTotal);
-        tbody += cashRows.map(rowHtml).join('');
+        tbody += cashRows.map(function (r) { return rowHtml(r, false); }).join('');
         tbody += subgroupDivider('비현금 협업', nonCashRows.length, 0);
-        tbody += nonCashRows.map(rowHtml).join('');
+        tbody += nonCashRows.map(function (r) { return rowHtml(r, false); }).join('');
       } else {
-        tbody += rows.map(rowHtml).join('');
+        tbody += rows.map(function (r) { return rowHtml(r, false); }).join('');
       }
 
       return '<div class="year-divider">' +
@@ -987,6 +1104,66 @@
   }
 
   mount();
+
+  // ----- KPI 실시간 편집 (이벤트 위임 — renderKpis() 로 새 DOM 생성되어도 동작) -----
+  // 등록 가능한 KPI 목록:
+  var KPI_FIELDS = {
+    'view-revenue': { key: 'view_revenue_usd', format: 'usd', label: '조회수 수익 → $' },
+    'share-revenue': { key: 'share_revenue_krw', format: 'krw', label: '수익쉐어 금액 → ₩' },
+  };
+
+  function kpiOpen(fieldId) {
+    var def = KPI_FIELDS[fieldId]; if (!def) return;
+    var span = document.getElementById('kpi-' + fieldId);
+    var input = document.getElementById('kpi-' + fieldId + '-input');
+    if (!span || !input) return;
+    span.style.display = 'none';
+    input.style.display = '';
+    input.focus(); input.select();
+  }
+  function kpiCommit(fieldId) {
+    var def = KPI_FIELDS[fieldId]; if (!def) return;
+    var input = document.getElementById('kpi-' + fieldId + '-input');
+    var span = document.getElementById('kpi-' + fieldId);
+    if (!input || !span) return;
+    var v = parseFloat(input.value);
+    if (isNaN(v) || v < 0) v = 0;
+    if (def.format === 'usd') RAW[def.key] = Math.round(v * 100) / 100;
+    else                          RAW[def.key] = Math.round(v);
+    input.style.display = 'none';
+    span.style.display = '';
+    var msg = def.format === 'usd'
+      ? def.label + RAW[def.key].toFixed(2)
+      : def.label + won(RAW[def.key]);
+    saveAndRefresh({ msg: msg });
+  }
+  function kpiCancel(fieldId) {
+    var def = KPI_FIELDS[fieldId]; if (!def) return;
+    var input = document.getElementById('kpi-' + fieldId + '-input');
+    var span = document.getElementById('kpi-' + fieldId);
+    if (!input || !span) return;
+    input.value = String(RAW[def.key] || 0);
+    input.style.display = 'none';
+    span.style.display = '';
+  }
+
+  document.getElementById('kpi-grid').addEventListener('click', function (e) {
+    var span = e.target.closest('[id^="kpi-"][id$="-revenue"]:not([id*="-input"])');
+    if (!span || !span.id) return;
+    var fieldId = span.id.replace(/^kpi-/, '');
+    kpiOpen(fieldId);
+  });
+  document.getElementById('kpi-grid').addEventListener('blur', function (e) {
+    if (!e.target.id || !/^kpi-.*-input$/.test(e.target.id)) return;
+    var fieldId = e.target.id.replace(/^kpi-/, '').replace(/-input$/, '');
+    kpiCommit(fieldId);
+  }, true);
+  document.getElementById('kpi-grid').addEventListener('keydown', function (e) {
+    if (!e.target.id || !/^kpi-.*-input$/.test(e.target.id)) return;
+    var fieldId = e.target.id.replace(/^kpi-/, '').replace(/-input$/, '');
+    if (e.key === 'Enter') { e.preventDefault(); kpiCommit(fieldId); }
+    if (e.key === 'Escape') { kpiCancel(fieldId); }
+  });
 
   document.getElementById('ad-form').addEventListener('submit', function (e) {
     e.preventDefault();
